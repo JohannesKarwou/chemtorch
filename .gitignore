@@ -7,10 +7,10 @@ __pycache__/
 *.so
 
 # bash files
-*.sh
+#*.sh
 
 # Data folder
-data/*
+# data/*
 
 # multirun
 multirun/
