@@ -101,9 +101,9 @@ This script will run four grouped multi-run experiments (using `Hydra`) on the R
 > The `rdb7.sh` and `rgd1.sh` files are Slurm scripts intended for use on HPC clusters. You can launch them with `sbatch rdb7.sh`, though you may need to adapt this command for your setup.
 > Also, because the RGD1 dataset is very large, it’s strongly recommended to run it on a GPU.
 
--------------------------------
-
 <div align="center">
+------------------------------------ Start of the original ChemTorch README ------------------------------------
+
 
 ![ChemTorch](images/chemtorch.png)
 
