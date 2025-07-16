@@ -97,6 +97,9 @@ bash rdb7.sh
 
 This script will run four grouped multi-run experiments (using `Hydra`) on the RDB7 dataset—first with ground-truth 3D coordinates, then with diffusion and flow-matching coordinates, and finally without any coordinates—logging each run to its own `.log` file. For each run it sweeps over three random seeds and, for each experiment, iterates through three data splits (random, reaction-core, and barrier), applying the specified learning rates and model hyperparameters. For RGD1 there exists exaclty the same script called `rgd1.sh`, note this takes much longer and you need to get the RGD1 data from zenodo as mentioned in the beginning of this README
 
+> **📝 Note:**  
+> The `rdb7.sh` and `rgd1.sh` files are Slurm scripts intended for use on HPC clusters. You can launch them with `sbatch rdb7.sh`, though you may need to adapt this command for your setup.
+> Also, because the RGD1 dataset is very large, it’s strongly recommended to run it on a GPU.
 
 -------------------------------
 
