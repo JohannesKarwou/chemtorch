@@ -4,7 +4,7 @@ This guide explains how to reproduce results using extra 3D information with Che
 
 
 > **⚠️ Attention:**  
-> In this repository, the data is available to produce all results except the ones for `rgd1`. The data files for `rgd1` are too big for GitHub and can be found on [zenodo](https://zenodo.org/records/15488056)
+> In this repository, the data is available to produce all results except the ones for `rgd1`. The data files for `rgd1` are too big for GitHub and can be found on [zenodo]([https://zenodo.org/records/15488056](https://zenodo.org/records/16942034))
 
 
 ## 1. Install ChemTorch
