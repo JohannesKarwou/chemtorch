@@ -9,7 +9,7 @@ This guide explains how to reproduce results using extra 3D information with Che
 
 ## 1. Install ChemTorch
 
-First, install the necessary dependencies: 
+First, install the necessary dependencies using this forked [ChemTorch](https://github.com/heid-lab/chemtorch) version. Just copy the following lines:
 
 
 ```bash
@@ -23,18 +23,15 @@ pip install torch_scatter torch_sparse torch_cluster torch_spline_conv -f https:
 pip install wandb && \
 pip install lightning && \
 pip install ipykernel && \
+git clone https://github.com/JohannesKarwou/chemtorch.git && \
+cd chemtorch && \
+pip install -e .
 ```
 
 For GPU usage:
 ```bash
 pip install torch-scatter torch-sparse -f [https://data.pyg.org/whl/torch-$](https://data.pyg.org/whl/torch-$){TORCH}+${CUDA}.html
 ```
-
-Then you need to install [ChemTorch](https://github.com/heid-lab/chemtorch) using this fork. First, clone it with
-```bash
-git clone https://github.com/JohannesKarwou/chemtorch.git
-``` 
-and then do `pip install -e .`
 
 > **📝 Note:**  
 > Replace TORCH with your PyTorch version (e.g., 2.6.0) and CUDA with your CUDA version (cpu, cu118, or cu121).
@@ -61,7 +58,12 @@ uv run flow_train.py -m \
 
 > **📝 Note:**  
 > You need to install `pip install mace-torch ase rdkit` to use the following notebook
-
+> If you get a Runtime error, it is possible that the `mace` foundation model can not be found.  
+> To resolve it, download the model manually from the [MACE foundations repository](https://github.com/ACEsuit/mace-foundations). For example, the model we used is available here: [mace-mpa-0-medium.model](https://github.com/ACEsuit/mace-mp/releases/download/mace_mpa_0/mace-mpa-0-medium.model).  
+> When initializing the `MACECalculator` for the first time, provide the correct path to the model via the `model_path` parameter:  
+> ```python
+> calculator = MACECalculator(model_path="mace-mpa-0-medium.model")
+> ```
 
 If you wish to create the descriptors yourself:
 
