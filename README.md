@@ -30,11 +30,12 @@ pip install -e .
 
 For GPU usage:
 ```bash
-pip install torch-scatter torch-sparse -f [https://data.pyg.org/whl/torch-$](https://data.pyg.org/whl/torch-$){TORCH}+${CUDA}.html
+pip install torch-scatter torch-sparse -f https://data.pyg.org/whl/torch-{TORCH}+${CUDA}.html
+
 ```
 
 > **📝 Note:**  
-> Replace TORCH with your PyTorch version (e.g., 2.6.0) and CUDA with your CUDA version (cpu, cu118, or cu121).
+> Replace TORCH with your PyTorch version (e.g., 2.6.0) and CUDA with your CUDA version (cpu, cu118, or cu121). For CUDA 11.8 is should look like this `pip install torch-scatter torch-sparse -f https://data.pyg.org/whl/torch-2.6.0+cu118.html`
 
 ## 2. Creating Diffusion and/or Flow Matching Coordinates [Optional]
 
