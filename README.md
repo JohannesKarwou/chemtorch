@@ -13,18 +13,25 @@ First, install the necessary dependencies using this forked [ChemTorch](https://
 
 
 ```bash
-conda create -n chemtorch python=3.10 && \
-conda activate chemtorch && \
-pip install rdkit numpy==1.26.4 scikit-learn pandas && \
-pip install torch==2.5.1 && \
-pip install hydra-core && \
-pip install torch_geometric && \
-pip install torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.5.0+cpu.html && \
-pip install wandb && \
-pip install lightning && \
-pip install ipykernel && \
-git clone https://github.com/JohannesKarwou/chemtorch.git && \
-cd chemtorch && \
+conda create -y -n chemtorch python=3.10
+conda activate chemtorch
+
+# We need git lfs to clone big npz files
+conda install -y -c conda-forge git-lfs
+git lfs install
+unset GIT_LFS_SKIP_SMUDGE || true
+git clone https://github.com/JohannesKarwou/chemtorch.git
+cd chemtorch
+git lfs pull
+pip install rdkit numpy==1.26.4 scikit-learn pandas
+pip install torch==2.5.1
+pip install hydra-core
+pip install torch_geometric
+pip install torch_scatter torch_sparse torch_cluster torch_spline_conv \
+  -f https://data.pyg.org/whl/torch-2.5.0+cpu.html
+pip install wandb
+pip install lightning
+pip install ipykernel
 pip install -e .
 ```
 
