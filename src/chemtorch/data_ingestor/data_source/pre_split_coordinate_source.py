@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import numpy as np
 from typing_extensions import override
+import zipfile, pathlib
 
 from chemtorch.data_ingestor.data_source import DataSource
 from chemtorch.utils import DataSplit
