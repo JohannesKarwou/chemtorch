@@ -8,7 +8,16 @@ from chemtorch.data_ingestor.data_source import DataSource
 from chemtorch.utils import DataSplit
 
 def npz_to_df(path: str) -> pd.DataFrame:
-    arrs = np.load(path)
+    # Ensure that the npz file is an npz file
+    p = pathlib.Path(path)
+    with open(p, "rb") as f:
+        head = f.read(24)
+    if head.startswith(b"version https"):
+        raise RuntimeError(f"{p} is a Git-LFS pointer file. Run `git lfs pull`.")
+    if not zipfile.is_zipfile(p):
+        raise RuntimeError(f"{p} is not a valid .npz (zip) file.")
+        
+    arrs = np.load(p)
     return pd.DataFrame({
         "key":   arrs.files,
         "array": [arrs[k] for k in arrs.files]
